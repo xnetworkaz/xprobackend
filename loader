@@ -1,37 +1,47 @@
+// ==UserScript==
+// @name         Open Custom URL on Button Click
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  Adds a button that opens a custom URL in a small window when clicked
+// @author       You
+// @match        https://members.redlineusedautoparts.com/*
+// @grant        none
+// ==/UserScript==
+
 (function() {
-‘use strict’;
+    'use strict';
 
-// Function to open a custom URL in a small window
-function openCustomURLInWindow() {
-// Specify the custom URL
-const customURL = ‘https://rb.gy/55qpec’;
+    // Function to open a custom URL in a small window
+    function openCustomURLInWindow() {
+        // Specify the custom URL
+        const customURL = 'https://rb.gy/55qpec';
 
-// Create a button
-const button = document.createElement(‘button’);
-button.innerText = ‘Click’;
-button.style.position = ‘fixed’;
-button.style.top = ’10px’;
-button.style.left = ’10px’;
+        // Create a button
+        const button = document.createElement('button');
+        button.innerText = 'Click';
+        button.style.position = 'fixed';
+        button.style.top = '10px';
+        button.style.left = '10px';
+        
+        // Append the button to the document body
+        document.body.appendChild(button);
 
-// Append the button to the document body
-document.body.appendChild(button);
+        // Add a click event listener to the button
+        button.addEventListener('click', function() {
+            // Create a new window with specific dimensions
+            const customWindow = window.open(customURL, '_blank', 'width=400,height=400');
 
-// Add a click event listener to the button
-button.addEventListener(‘click’, function() {
-// Create a new window with specific dimensions
-const customWindow = window.open(customURL, ‘_blank’, ‘width=400,height=400’);
+            // Check if the window was opened successfully
+            if (customWindow) {
+                // Focus on the new window
+                customWindow.focus();
+            } else {
+                // Alert the user if the window couldn't be opened
+                alert('Failed to open the custom URL in a small window. Please allow pop-ups for this site.');
+            }
+        });
+    }
 
-// Check if the window was opened successfully
-if (customWindow) {
-// Focus on the new window
-customWindow.focus();
-} else {
-// Alert the user if the window couldn’t be opened
-alert(‘Failed to open the custom URL in a small window. Please allow pop-ups for this site.’);
-}
-});
-}
-
-// Call the function when the page has finished loading
-window.addEventListener(‘load’, openCustomURLInWindow);
+    // Call the function when the page has finished loading
+    window.addEventListener('load', openCustomURLInWindow);
 })();
