@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rounded Horizontal Rectangle with Blended Border</title>
+    <style>
+        .container {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 20px; /* Rounded border */
+            border: 5px solid;
+            border-image: linear-gradient(to right, green, blue);
+            border-image-slice: 1;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            display: flex; /* Enables flexbox layout */
+            align-items: center; /* Aligns items vertically in the center */
+            flex-direction: column; /* Stack items vertically */
+            text-align: center; /* Center align text */
+        }
+        .icon {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 10px; /* Add space between icon and title */
+        }
+        h1 {
+            color: #333;
+            margin: 0; /* Remove default margin */
+        }
+        p {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="icon" src="https://uxwing.com/wp-content/themes/uxwing/download/hand-gestures/good-icon.png" alt="Icon">
+        <h1>Welcome</h1>
+        <p>This is a rounded horizontal rectangle with a blended border.</p>
+        <p>You can adjust its size, roundness, and border colors in the CSS.</p>
+    </div>
+</body>
+</html>
